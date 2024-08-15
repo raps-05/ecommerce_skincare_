@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(228, 244, 230);
+            margin: 0;
+            padding: 0;
+            font-family: cursive;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            color: hsl(148, 20%, 38%);
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: cursive;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        button {
+            padding: 10px;
+            background-color: hsl(148, 20%, 38%, 0.2);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: hsl(0, 0%, 61%);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group select {
+            width: 100%;
+        }
+        .container.pop-out {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Return Items</h1>
+    <div class="container" onclick="togglePopOut()">
+        <!-- <h1>Return Items</h1> -->
+        <form action="#" method="post">
+            
+            <div class="form-group">
+                <label for="orderNumber">Order Number:</label>
+                <input type="text" id="orderNumber" name="orderNumber" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="item">Item to Return:</label>
+                <input type="text" id="item" name="item" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Reason for Return:</label>
+                <select id="reason" name="reason" required>
+                    <option value="">-- Please Select --</option>
+                    <option value="damaged">Damaged</option>
+                    <option value="defective">Defective</option>
+                    <option value="wrongItem">Wrong Item Sent</option>
+                    <option value="unwanted">No Longer Wanted</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Additional Comments:</label>
+                <br>
+                <textarea id="comments" name="comments" placeholder="Optional"></textarea>
+            </div>
+
+            <button type="submit" style="background-color: hsl(148, 20%, 38%); color: white; width: 150px; height: 63px; font-size: 15px; font-family: cursive; border-radius: 10px;">Submit Return Request</button>
+        </form>
+    </div>
+
+    <script>
+        function togglePopOut() {
+            const container = document.querySelector('.container');
+            container.classList.toggle('pop-out');
+        }
+    </script>
+
+</body>
+</html>
